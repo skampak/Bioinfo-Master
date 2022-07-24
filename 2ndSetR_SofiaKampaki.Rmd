@@ -1,0 +1,79 @@
+---
+title: "2ndSetOfExercises_R"
+author: "Sofia Kampaki"
+date: "November 25, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Exercise 1
+####Construct a 5 x 10 matrix A, for which every Aij=ij Hint: remember that operations are cellwise in R.
+
+```{r eval=F}
+mtx1<-matrix(1:5,nrow=5,ncol=10)
+mtx1
+mtx2<-matrix(1:10,nrow=5,ncol=10,byrow=T)
+mtx2
+A=mtx1^mtx2
+A
+```
+
+#Exercise 2
+####Construct a 10 x 10 matrix A, for which Aij=|i−j|. Then extract its diagonal Hint: remember that operations are cellwise in R.
+```{r eval=F}
+mtx12<-matrix(1:10,nrow=10,ncol=10)
+mtx22<-matrix(1:10,nrow=10,ncol=10,byrow=T)
+mtx12
+mtx22
+Α=abs(mtx12-mtx22)
+A
+diag(Α)
+```
+
+#Exercise 3
+####Create a 10 x 10 matrix A, for which Aij=(i−1)∗10+j.Hint: this is the easiest, you should just try to understand how this matrix should look like.
+
+```{r eval=F}
+A=matrix(1:100, nrow=10, ncol=10,byrow=T)
+A
+```
+
+#Exercise 4
+####Consider the matrix of the previous exercise (3). Find a matrix B, for which Bij=2×Aij. Find a matrix C, for which Cij=i×j×Aij
+```{r eval=F}
+D2<-matrix(2,ncol=10,nrow=1)
+B=D2%*%A
+B
+C=mtx12%*%mtx22%*%A
+C
+```
+
+#Exercise 5
+####Create a list of 10 elements. Each element is a vector Vi=i,i=1…10
+```{r eval=F}
+test<-c(1:10)
+test
+v<-rep(list(0),10)
+v
+tmpl<-lapply(v,function(x) x<-c(1:10))
+tmpl
+```
+
+
+
+#Exercise 6
+####Convert the previous list to a 10×10matrix A, by row.
+```{r, eval=F}
+A<-matrix(unlist(tmpl),nrow=10,ncol=10,byrow=T)
+A
+```
+
+#Exercise 7
+####The same like exercise 6, by column.
+```{r eval=F}
+A<-matrix(unlist(tmpl),nrow=10,ncol=10)
+A
+```
